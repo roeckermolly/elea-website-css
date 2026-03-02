@@ -123,17 +123,16 @@ body {
    SECTION TYPOGRAPHY & SPACING
    ============================================== */
 
-/* All major section headings — tighter, more authoritative */
+/* Headings — preserve live site sizes, refine spacing only */
 h2 {
-  font-size: clamp(1.65rem, 3.2vw, 2.6rem);
   font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  line-height: 128%;
+  letter-spacing: -1.2px;
 }
 h3 {
-  font-size: clamp(1.2rem, 2vw, 1.75rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 128%;
+  letter-spacing: -0.8px;
 }
 
 /* Montserrat intro paragraphs — more breathing room */
