@@ -1,0 +1,505 @@
+/* ==============================================
+   ELEA INSTITUTE — Think Tank Visual Refresh
+   ------------------------------------------
+   Paste into:
+   WordPress → Appearance → Customize →
+   Additional CSS → (paste all of this)
+   ============================================== */
+
+
+/* --- GLOBAL RENDERING --- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ==============================================
+   NAVIGATION
+   ============================================== */
+
+/* Stronger nav shadow + rust-red accent bar on bottom edge */
+.top1 {
+  box-shadow: 0 2px 16px rgba(19, 39, 75, 0.22) !important;
+  border-bottom: 3px solid var(--c_c1, #B85834);
+}
+
+/* More breathing room + tighter uppercase Montserrat */
+.nav1-main > li > a {
+  padding-left: 1.1rem !important;
+  padding-right: 1.1rem !important;
+  letter-spacing: 0.09em !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+/* Animated underline on nav links */
+.nav1-main > li > a {
+  position: relative;
+}
+.nav1-main > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.1rem;
+  right: 1.1rem;
+  height: 2px;
+  background: var(--c_c1, #B85834);
+  transform: scaleX(0);
+  transition: transform 0.22s ease;
+  transform-origin: center;
+}
+.nav1-main > li > a:hover::after,
+.nav1-main > li.current-menu-item > a::after {
+  transform: scaleX(1);
+}
+
+/* Refined dropdown */
+.nav1-main .sub-menu {
+  border-top: 3px solid var(--c_c1, #B85834) !important;
+  border-radius: 0 0 6px 6px !important;
+  box-shadow: 0 8px 28px rgba(19, 39, 75, 0.16) !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.nav1-main .sub-menu a {
+  font-size: 0.8rem !important;
+  letter-spacing: 0.04em !important;
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+}
+
+
+/* ==============================================
+   HERO SECTION
+   ============================================== */
+
+/* Deepen and shift the overlay from brown to navy for authority */
+.hero1-image::after {
+  background-color: var(--c_a3, #13274B) !important;
+  opacity: 0.78 !important;
+}
+
+/* Large, impactful hero headline */
+.hero1-main h1 {
+  font-size: clamp(2.2rem, 5vw, 3.75rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem !important;
+}
+
+/* Subtitle in hero — cleaner Montserrat */
+.hero1-main p {
+  font-family: var(--ff_2, 'Montserrat', sans-serif) !important;
+  font-size: clamp(1rem, 1.6vw, 1.2rem) !important;
+  line-height: 1.75 !important;
+  font-weight: 400 !important;
+  opacity: 0.92;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add a thin horizontal rule at the hero bottom (editorial divider) */
+.hero1-main {
+  position: relative;
+}
+.hero1-main::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--c_c1, #B85834);
+  margin: 2rem auto 0;
+}
+
+
+/* ==============================================
+   SECTION TYPOGRAPHY & SPACING
+   ============================================== */
+
+/* All major section headings — tighter, more authoritative */
+h2 {
+  font-size: clamp(1.65rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Montserrat intro paragraphs — more breathing room */
+.is-layout-flow > p,
+.insert1 > p {
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+}
+
+/* Section padding — think tanks need generous whitespace */
+.wp-block-group,
+.wp-block-cover {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* "Eyebrow" — small uppercase label above section headings */
+/* Applies to Montserrat-styled intro labels */
+.wp-block-heading + p:first-of-type,
+[class*="-tm"] > .insert1 > h2:first-child::before {
+  font-family: var(--ff_2, 'Montserrat', sans-serif);
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c_c1, #B85834);
+}
+
+
+/* ==============================================
+   IMAGE GRID / CARDS
+   ============================================== */
+
+/* Lift and soften card treatment */
+figure.has-hover {
+  border-radius: 6px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(19, 39, 75, 0.1);
+  transition: box-shadow 0.32s ease, transform 0.32s ease !important;
+}
+figure.has-hover:hover {
+  box-shadow: 0 10px 36px rgba(19, 39, 75, 0.2) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* Subtle zoom on image hover */
+figure.has-hover img {
+  transition: transform 0.45s ease !important;
+}
+figure.has-hover:hover img {
+  transform: scale(1.05) !important;
+}
+
+/* Caption overlay — navy gradient (matches brand, not brown) */
+figure.has-hover figcaption {
+  background: linear-gradient(
+    to top,
+    rgba(19, 39, 75, 0.97) 0%,
+    rgba(19, 39, 75, 0.65) 55%,
+    transparent 100%
+  ) !important;
+}
+
+/* Caption title — Lora serif, clean */
+.caption-title {
+  font-family: var(--ff_1, 'Lora', serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Caption body text */
+.caption-content p,
+figure.has-hover figcaption p {
+  font-family: var(--ff_2, 'Montserrat', sans-serif) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.65 !important;
+  opacity: 0.88;
+}
+
+
+/* ==============================================
+   PILLAR / THREE-COLUMN FEATURES
+   ============================================== */
+
+/* Add a top accent line and hover lift */
+[class*="pillar"],
+[class*="pillar-icon"] {
+  border-top: 3px solid transparent;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 6px;
+}
+[class*="pillar"]:hover,
+[class*="pillar-icon"]:hover {
+  border-top-color: var(--c_c1, #B85834);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(19, 39, 75, 0.12);
+}
+
+
+/* ==============================================
+   NEWS / ARTICLES SECTION
+   ============================================== */
+
+/* Editorial background treatment */
+[class*="-tm:news"],
+[class*="news"] {
+  border-top: 1px solid #CDD7E8;
+}
+
+/* Article row — clean divider with hover shift */
+.teaser1-wrap {
+  border-bottom: 1px solid #CDD7E8 !important;
+  padding-bottom: 1.6rem !important;
+  margin-bottom: 1.6rem !important;
+  transition: transform 0.2s ease;
+}
+.teaser1-wrap:hover {
+  transform: translateX(5px);
+}
+.teaser1-wrap:last-child {
+  border-bottom: none !important;
+}
+
+/* News headline */
+.teaser1-wrap h3,
+.teaser1-wrap h4 {
+  font-family: var(--ff_1, 'Lora', serif) !important;
+  font-size: 1.18rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 0.35rem !important;
+  color: var(--c_a3, #13274B) !important;
+}
+.teaser1-wrap h3:hover,
+.teaser1-wrap h4:hover,
+.teaser1-wrap a:hover h3,
+.teaser1-wrap a:hover h4 {
+  color: var(--c_c1, #B85834) !important;
+}
+
+/* Date / category label — Montserrat uppercase rust red */
+.teaser1-wrap time,
+.teaser1-wrap .post-date,
+.teaser1-wrap .date {
+  font-family: var(--ff_2, 'Montserrat', sans-serif) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  color: var(--c_c1, #B85834) !important;
+}
+
+
+/* ==============================================
+   QUOTE / TESTIMONIAL SECTION
+   ============================================== */
+
+/* Decorative large quotation mark in background */
+[class*="testimonial"]::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.15em;
+  left: 4%;
+  font-family: var(--ff_1, 'Lora', serif);
+  font-size: min(22rem, 35vw);
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+[class*="testimonial"] {
+  position: relative;
+  overflow: hidden;
+}
+[class*="testimonial"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* The quote itself — Lora italic, more prominent */
+[class*="testimonial"] q,
+[class*="testimonial"] blockquote {
+  font-family: var(--ff_1, 'Lora', serif) !important;
+  font-size: clamp(1.2rem, 2.2vw, 1.75rem) !important;
+  font-style: italic !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+/* Citation — Montserrat all-caps, spaced */
+[class*="testimonial"] cite {
+  font-family: var(--ff_2, 'Montserrat', sans-serif) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  opacity: 0.8;
+  display: block;
+  margin-top: 1.25rem;
+}
+
+
+/* ==============================================
+   BUTTONS
+   ============================================== */
+
+/* More polished — better letter-spacing, lift on hover */
+.button1 {
+  letter-spacing: 0.06em !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  text-transform: uppercase !important;
+  padding: 15px 30px !important;
+  transition: background-color 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease !important;
+}
+.button1:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(19, 39, 75, 0.28) !important;
+}
+.button1.-ghost:hover {
+  box-shadow: 0 6px 18px rgba(19, 39, 75, 0.18) !important;
+}
+
+
+/* ==============================================
+   NEWSLETTER / CTA SECTION
+   ============================================== */
+
+/* Accent bar on top */
+.embed-action.-mailchimp,
+[class*="mailchimp"] {
+  border-top: 4px solid var(--c_c1, #B85834);
+}
+
+/* Input fields — cleaner, more refined */
+.embed-action input[type="text"],
+.embed-action input[type="email"],
+.embed-action select {
+  border: 1px solid #B1C1E7 !important;
+  border-radius: 4px !important;
+  font-family: var(--ff_2, 'Montserrat', sans-serif) !important;
+  font-size: 0.875rem !important;
+  padding: 12px 16px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+.embed-action input:focus,
+.embed-action select:focus {
+  border-color: var(--c_a1, #223768) !important;
+  box-shadow: 0 0 0 3px rgba(34, 55, 104, 0.12) !important;
+  outline: none !important;
+}
+
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+
+.footer1 {
+  padding-top: 4rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+/* Footer nav links — lighter opacity, smooth hover */
+.footer1 a {
+  opacity: 0.78;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s ease, color 0.2s ease !important;
+}
+.footer1 a:hover {
+  opacity: 1 !important;
+  color: #fff !important;
+}
+
+/* Footer divider line */
+.footer1-hr,
+.footer1 hr {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.75rem !important;
+}
+
+/* Footer tagline — Lora italic, feels authoritative */
+.footer1 .tagline,
+.footer1 [class*="tagline"] {
+  font-family: var(--ff_1, 'Lora', serif) !important;
+  font-style: italic;
+  font-size: 1.05rem !important;
+  opacity: 0.72;
+}
+
+/* Footer copyright — smaller, softer */
+.footer1-copys,
+.footer1 .copyright {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.06em !important;
+  opacity: 0.55;
+}
+
+
+/* ==============================================
+   EDITORIAL SECTION DIVIDERS
+   ============================================== */
+
+/* Thin horizontal rule above section headings inside content blocks */
+.is-layout-flow > h2,
+.wp-block-group > .wp-block-group__inner-container > h2 {
+  padding-top: 0;
+}
+.is-layout-flow > h2::before,
+.wp-block-group > .wp-block-group__inner-container > h2::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--c_c1, #B85834);
+  margin-bottom: 1rem;
+}
+
+
+/* ==============================================
+   GENERAL LINK POLISH
+   ============================================== */
+
+a:not([class]) {
+  transition: color 0.15s ease;
+}
+a:not([class]):hover {
+  color: var(--c_c1, #B85834);
+}
+
+
+/* ==============================================
+   FOCUS STATES (Accessibility)
+   ============================================== */
+
+:focus-visible {
+  outline: 2px solid var(--c_c1, #B85834);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+
+/* ==============================================
+   MOBILE REFINEMENTS
+   ============================================== */
+
+@media (max-width: 720px) {
+  .hero1-main h1 {
+    font-size: 2rem !important;
+    letter-spacing: -0.005em;
+  }
+  .hero1-main p {
+    font-size: 0.97rem !important;
+  }
+  h2 {
+    font-size: 1.55rem;
+  }
+  .wp-block-group,
+  .wp-block-cover {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .button1 {
+    padding: 13px 22px !important;
+  }
+}
