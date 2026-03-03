@@ -4,13 +4,24 @@
   var menu = document.getElementById('mobile-nav');
   if (!btn || !menu) return;
 
-  function open()  { menu.classList.add('open');  btn.classList.add('open');  btn.setAttribute('aria-expanded', 'true');  }
-  function close() { menu.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-  function toggle() { menu.classList.contains('open') ? close() : open(); }
+  // Always start hidden regardless of CSS load order
+  menu.style.display = 'none';
+
+  function open() {
+    menu.style.display = 'block';
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    menu.style.display = 'none';
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function toggle() { menu.style.display === 'none' ? open() : close(); }
 
   btn.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
 
-  // Close on any link click (navigates away)
+  // Close on any link click
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
 
   // Close when tapping outside
