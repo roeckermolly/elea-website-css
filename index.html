@@ -3,351 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elea Institute — CSS Preview</title>
+  <title>Elea Institute — Expanding Access to Hospice &amp; Palliative Care</title>
 
   <!-- Same fonts as the live site -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
 
-  <style>
-    /* === ELEA BRAND VARIABLES (from live site) === */
-    :root {
-      --ff_1: "Lora", serif;
-      --ff_2: "Montserrat", sans-serif;
-      --c_a1: #223768;
-      --c_a2: #FFFFFF;
-      --c_a3: #13274B;
-      --c_b3: #EBF3FE;
-      --c_c1: #B85834;
-      --c_c2: #6384CF;
-      --c_d1: #13274B;
-      --c_d2: #13274B;
-    }
+  <!-- Shared site styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    /* === BASE RESET === */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--ff_2); color: var(--c_d1); background: #fff; }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    /* === NAV === */
-    .top1 {
-      background: var(--c_a3);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo1 { flex-shrink: 0; }
-    .logo1 img { height: 24px; width: auto; display: block; }
-    .logo1-footer img { height: 48px; width: auto; display: block; margin-bottom: 0.5rem; }
-    .nav1-main { display: flex; list-style: none; gap: 0; }
-    .nav1-main > li > a {
-      color: #fff;
-      display: block;
-      padding: 0 0.6rem;
-      line-height: 64px;
-      font-family: var(--ff_2);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .button1.-ghost {
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-family: var(--ff_2);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    /* === HERO CAROUSEL === */
-    .hero1 {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      background: var(--c_a3);
-    }
-
-    /* Each slide */
-    .hero1 { height: 520px; }
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 5rem 2rem;
-      opacity: 0;
-      transition: opacity 1s ease;
-      pointer-events: none;
-    }
-    .hero-slide.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Background image per slide */
-    .hero-slide::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-    .hero-slide::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: var(--c_a3);
-      opacity: 0.72;
-      z-index: 1;
-    }
-    .slide-mission::before {
-      background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/AdobeStock_1341979123-1-2000x1334.jpg');
-    }
-    .slide-team::before {
-      background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/Untitled-design-2024-08-12T181432.534-e1755718902761-2000x731.png');
-    }
-    .slide-impact::before {
-      background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/GPIC-hands_elea-1.png');
-    }
-
-    /* Slide text content */
-    .hero1-main {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      max-width: 760px;
-    }
-    /* === GLOBAL HEADING STYLES (matching live site) === */
-    h1 {
-      font-family: var(--ff_1);
-      font-size: 60px;
-      font-weight: 700;
-      line-height: 112%;
-      letter-spacing: -0.8px;
-    }
-    h2 {
-      font-family: var(--ff_1);
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 128%;
-      letter-spacing: -1.2px;
-    }
-    h3 {
-      font-family: var(--ff_1);
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 128%;
-      letter-spacing: -0.8px;
-    }
-    .hero1-main h1 {
-      font-size: 60px;
-      margin-bottom: 1.25rem;
-    }
-    .hero1-main p {
-      font-family: var(--ff_2);
-      font-size: 1.1rem;
-      line-height: 1.7;
-      opacity: 0.92;
-      margin-bottom: 2rem;
-    }
-
-    /* Dot indicators */
-    .hero-dots {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.5rem;
-      z-index: 10;
-    }
-    .hero-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .hero-dot.active {
-      background: var(--c_c1);
-      transform: scale(1.3);
-    }
-    .button1 {
-      display: inline-block;
-      background: var(--c_a3);
-      color: #fff;
-      padding: 15px 28px;
-      border-radius: 8px;
-      font-family: var(--ff_2);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    /* === SECTION GENERIC === */
-    section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .section-full { max-width: 100%; padding: 4rem 2rem; }
-
-    /* === MISSION === */
-    .mission { text-align: center; }
-    .mission h2 {
-      color: var(--c_a3);
-      margin-bottom: 1rem;
-    }
-    .mission p { font-size: 1.05rem; line-height: 1.8; max-width: 720px; margin: 0 auto 1.5rem; }
-
-    /* === IMAGE GRID / CARDS === */
-    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    figure.has-hover {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      aspect-ratio: 4/3;
-      cursor: pointer;
-    }
-    figure.has-hover img { width: 100%; height: 100%; object-fit: cover; }
-    figure.has-hover figcaption {
-      position: absolute;
-      inset: 0;
-      background: rgba(92,51,19,0.7);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.25rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    figure.has-hover:hover figcaption { opacity: 1; }
-    .caption-title {
-      font-family: var(--ff_1);
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    /* === PILLARS === */
-    .grid3-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .pillar-icon-1-2, .pillar-icon-2-2, .pillar-icon-3-2 {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 4px;
-      text-align: center;
-    }
-    .pillar-icon-1-2 h3, .pillar-icon-2-2 h3, .pillar-icon-3-2 h3 {
-      font-family: var(--ff_1);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--c_a3);
-      margin: 1rem 0 0.75rem;
-    }
-    .pillar-icon-1-2 p, .pillar-icon-2-2 p, .pillar-icon-3-2 p { font-size: 0.9rem; line-height: 1.7; }
-
-    /* === RESEARCH REPORT === */
-    .research-section { background: var(--c_a3); color: #fff; padding: 4rem 2rem; }
-    .research-inner { max-width: 1100px; margin: 0 auto; }
-    .research-section h2 { font-family: var(--ff_1); font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 2rem; }
-    .research-findings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
-    .finding {
-      border-left: 3px solid var(--c_c1);
-      padding-left: 1rem;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      opacity: 0.92;
-    }
-
-    /* === NEWS === */
-    .news-section { border-top: 1px solid #CDD7E8; background: #f7f9fc; padding: 4rem 2rem; }
-    .news-section h2 {
-      font-family: var(--ff_1);
-      font-size: 2rem;
-      color: var(--c_a3);
-      margin-bottom: 2rem;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .news-inner { max-width: 1100px; margin: 0 auto; }
-    .teaser1-wrap {
-      border-bottom: 1px solid #CDD7E8;
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .teaser1-wrap time { font-family: var(--ff_2); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c_c1); display: block; margin-bottom: 0.35rem; }
-    .teaser1-wrap h3 { font-family: var(--ff_1); font-size: 1.15rem; font-weight: 700; color: var(--c_a3); line-height: 1.4; margin-bottom: 0.5rem; }
-    .teaser1-wrap p { font-size: 0.9rem; line-height: 1.7; color: #444; }
-    .news-see-all { display: inline-block; margin-top: 1rem; font-family: var(--ff_2); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c_c1); }
-
-    /* === TESTIMONIAL === */
-    .testimonial-section {
-      background: var(--c_a1);
-      color: #fff;
-      text-align: center;
-      padding: 5rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .testimonial-section q {
-      font-family: var(--ff_1);
-      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
-      font-style: italic;
-      line-height: 1.6;
-      display: block;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
-    .testimonial-section cite {
-      font-family: var(--ff_2);
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      opacity: 0.8;
-    }
-
-    /* === NEWSLETTER === */
-    .newsletter-section { padding: 4rem 2rem; border-top: 4px solid var(--c_c1); }
-    .newsletter-inner { max-width: 680px; margin: 0 auto; text-align: center; }
-    .newsletter-section h2 { font-family: var(--ff_1); font-size: 2rem; color: var(--c_a3); margin-bottom: 1.5rem; }
-    .newsletter-form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
-    .newsletter-form input, .newsletter-form select {
-      border: 1px solid #B1C1E7;
-      border-radius: 4px;
-      font-family: var(--ff_2);
-      font-size: 0.875rem;
-      padding: 12px 16px;
-      width: 100%;
-    }
-
-    /* === FOOTER === */
-    .footer1 {
-      background: var(--c_a3);
-      color: #fff;
-      padding: 3rem 2rem 1.5rem;
-    }
-    .footer1-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
-    .footer1 .logo1 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .footer1 .tagline { font-family: var(--ff_1); font-style: italic; font-size: 1rem; opacity: 0.75; }
-    .footer1-hr { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 2rem auto 1.5rem; max-width: 1100px; display: block; }
-    .footer1-copys { text-align: center; font-size: 0.72rem; opacity: 0.5; letter-spacing: 0.06em; }
-    .footer1-nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: 0.82rem; }
-  </style>
-
-  <!-- Think-tank CSS refresh -->
+  <!-- Think-tank CSS refresh (for WordPress Additional CSS reference) -->
   <link rel="stylesheet" href="elea-think-tank-refresh.css" />
 </head>
 <body>
@@ -355,15 +19,15 @@
   <!-- NAV -->
   <header>
     <nav class="top1">
-      <div class="logo1"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></div>
+      <div class="logo1"><a href="index.html"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></a></div>
       <ul class="nav1-main">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Impact</a></li>
-        <li><a href="#">Grant Applications</a></li>
-        <li><a href="#">Grants Awarded</a></li>
-        <li><a href="#">Fact Sheets and Resources</a></li>
-        <li><a href="#">Newsroom</a></li>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="grant-applications.html">Grant Applications</a></li>
+        <li><a href="grants-awarded.html">Grants Awarded</a></li>
+        <li><a href="fact-sheets.html">Fact Sheets and Resources</a></li>
+        <li><a href="newsroom.html">Newsroom</a></li>
       </ul>
     </nav>
   </header>
@@ -383,6 +47,7 @@
         <div class="hero1-main">
           <h1>Our Team</h1>
           <p>Elea Institute's team helps expand access to high-quality hospice and palliative care by conducting meaningful research and providing impactful grants.</p>
+          <a href="about-us.html" class="button1" style="background:var(--c_c1);">Meet the Team</a>
         </div>
       </div>
 
@@ -390,6 +55,7 @@
         <div class="hero1-main">
           <h1>Our Impact</h1>
           <p>Elea Institute partners with our grantees to fund new facilities, offer innovative therapies, and expand access to care across the country. We improve end-of-life awareness and cultivate positive change for patients, caregivers, and providers.</p>
+          <a href="impact.html" class="button1" style="background:var(--c_c1);">Learn More</a>
         </div>
       </div>
 
@@ -435,6 +101,45 @@
   </script>
 
 
+  <!-- MISSION -->
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>Elea Institute leads national efforts to expand access to high-quality hospice and palliative care. We support patients, caregivers, and health care providers through research, educational resources, grants and other wide-ranging initiatives.</p>
+    <a href="about-us.html" class="button1" style="background:var(--c_a3);">About Elea Institute</a>
+  </section>
+
+
+  <!-- TEAM PHOTOS -->
+  <div class="section-full" style="background:var(--c_b3);padding:4rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <h2 style="font-family:var(--ff_1);font-size:2rem;color:var(--c_a3);margin-bottom:2rem;">Our Team</h2>
+      <div class="grid3">
+        <figure class="has-hover">
+          <img src="https://eleainstitute.org/wp-content/uploads/sites/344/Untitled-design-2024-08-12T181432.534-e1755718902761-2000x731.png" alt="Elea Institute Team" />
+          <figcaption>
+            <div class="caption-title">Leadership Team</div>
+          </figcaption>
+        </figure>
+        <figure class="has-hover">
+          <img src="https://eleainstitute.org/wp-content/uploads/sites/344/AdobeStock_1341979123-1-2000x1334.jpg" alt="Hospice Care" />
+          <figcaption>
+            <div class="caption-title">Compassionate Care</div>
+          </figcaption>
+        </figure>
+        <figure class="has-hover">
+          <img src="https://eleainstitute.org/wp-content/uploads/sites/344/GPIC-hands_elea-1.png" alt="Partners in Care" />
+          <figcaption>
+            <div class="caption-title">Global Partners in Care</div>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="about-us.html" class="button1" style="background:var(--c_a3);">Meet the Full Team</a>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ASPIRATIONS -->
   <div class="section-full" style="padding:4rem 2rem;">
     <div style="max-width:1100px;margin:0 auto;">
@@ -469,7 +174,7 @@
         <div class="finding">Caregivers do not perceive for-profit vs nonprofit as a decision-making factor in hospice decisions.</div>
         <div class="finding">Caregivers feel isolated, often experiencing worsening physical and mental health themselves.</div>
       </div>
-      <a href="#" class="button1" style="background:var(--c_c1);">Read The Full Report Here</a>
+      <a href="fact-sheets.html" class="button1" style="background:var(--c_c1);">Read The Full Report Here</a>
       </div></div>
     </div>
   </div>
@@ -482,11 +187,11 @@
         <img src="https://eleainstitute.org/wp-content/uploads/sites/344/Screenshot-2025-08-07-at-10.26.28-AM-998x1000.png" alt="News" style="width:120px;height:120px;object-fit:cover;border-radius:4px;flex-shrink:0;" />
         <div>
           <time>September 25, 2025</time>
-          <h3>MLB.com: Tucker brings cause close to his heart to new Chicago community</h3>
+          <h3><a href="newsroom.html">MLB.com: Tucker brings cause close to his heart to new Chicago community</a></h3>
           <p>Kyle Tucker does not know how long his time with the Cubs will last, but the star outfielder did not want that to get in the way of using his…</p>
         </div>
       </div>
-      <a href="#" class="news-see-all">See All</a>
+      <a href="newsroom.html" class="news-see-all">See All News →</a>
     </div>
   </div>
 
@@ -519,17 +224,17 @@
         <div class="tagline">Dignity. Compassion. Comfort.</div>
       </div>
       <nav class="footer1-nav">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Impact</a>
-        <a href="#">Grant Applications</a>
-        <a href="#">Grants Awarded</a>
-        <a href="#">Fact Sheets and Resources</a>
-        <a href="#">Newsroom</a>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="impact.html">Impact</a>
+        <a href="grant-applications.html">Grant Applications</a>
+        <a href="grants-awarded.html">Grants Awarded</a>
+        <a href="fact-sheets.html">Fact Sheets and Resources</a>
+        <a href="newsroom.html">Newsroom</a>
       </nav>
     </div>
     <hr class="footer1-hr" />
-    <p class="footer1-copys">© 2026 Elea Institute. All rights reserved. Powered by Archie</p>
+    <p class="footer1-copys">© 2026 Elea Institute. All rights reserved.</p>
   </footer>
 
 </body>
