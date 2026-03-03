@@ -442,11 +442,10 @@ figure.has-hover:hover figcaption { opacity: 1; }
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top center;
   margin: 0 auto 1rem;
-  background: var(--c_b3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  box-shadow: 0 4px 16px rgba(19, 39, 75, 0.14);
 }
 .team-card-photo-placeholder {
   width: 140px;
