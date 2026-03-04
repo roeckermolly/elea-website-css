@@ -8,57 +8,156 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="elea-think-tank-refresh.css" />
   <style>
-    .resource-card {
-      background: #fff;
-      border: 1px solid #CDD7E8;
+    /* ── Key Facts ── */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .fact-card {
+      background: #EBF3FE;
       border-radius: 6px;
-      padding: 1.75rem;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-      border-top: 3px solid transparent;
+      padding: 1.5rem 1.5rem 1.25rem;
+      border-left: 4px solid var(--c_c1);
     }
-    .resource-card:hover {
-      box-shadow: 0 8px 28px rgba(19, 39, 75, 0.12);
-      transform: translateY(-4px);
-      border-top-color: var(--c_c1);
-    }
-    .resource-card .tag {
-      font-family: var(--ff_2);
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--c_c1);
-      margin-bottom: 0.6rem;
-    }
-    .resource-card h3 {
-      font-family: var(--ff_1);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--c_a3);
-      margin-bottom: 0.6rem;
-      line-height: 1.35;
-    }
-    .resource-card p {
-      font-size: 0.875rem;
+    .fact-card p {
+      font-size: 0.95rem;
       line-height: 1.7;
-      color: #555;
-      margin-bottom: 1rem;
+      color: var(--c_a3);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
     }
-    .resource-card a {
+    .fact-card .source {
       font-family: var(--ff_2);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--c_c1);
     }
-    .resource-card a:hover { text-decoration: underline; }
-    .resources-grid {
+
+    /* ── Myth vs Fact ── */
+    .myth-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .myth-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #CDD7E8;
     }
+    .myth-cell, .fact-cell {
+      padding: 1.25rem 1.5rem;
+    }
+    .myth-cell {
+      background: #f8f9fc;
+      border-right: 1px solid #CDD7E8;
+    }
+    .fact-cell { background: #fff; }
+    .myth-cell .label, .fact-cell .label {
+      font-family: var(--ff_2);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+    .myth-cell .label { color: #999; }
+    .fact-cell .label { color: var(--c_c1); }
+    .myth-cell p, .fact-cell p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #444;
+      margin-bottom: 0;
+    }
+    .fact-cell .source {
+      font-family: var(--ff_2);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c_c1);
+      margin-top: 0.5rem;
+      display: block;
+    }
+    @media (max-width: 620px) {
+      .myth-row { grid-template-columns: 1fr; }
+      .myth-cell { border-right: none; border-bottom: 1px solid #CDD7E8; }
+    }
+
+    /* ── FAQs ── */
+    .faq-list { margin-top: 2rem; }
+    .faq-item {
+      border-bottom: 1px solid #CDD7E8;
+      padding: 1.25rem 0;
+    }
+    .faq-item:first-child { border-top: 1px solid #CDD7E8; }
+    .faq-q {
+      font-family: var(--ff_1);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .faq-q::after {
+      content: '+';
+      font-family: var(--ff_2);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--c_c1);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a p {
+      font-size: 0.925rem;
+      line-height: 1.75;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+    .faq-a .source {
+      font-family: var(--ff_2);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c_c1);
+    }
+
+    /* ── Section dividers ── */
+    .resource-section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; }
+    .resource-section h2 {
+      font-family: var(--ff_1);
+      font-size: 1.6rem;
+      color: var(--c_a3);
+      margin-bottom: 0.5rem;
+    }
+    .resource-section > p {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: #555;
+      max-width: 700px;
+    }
+    .section-divider { border: none; border-top: 1px solid #CDD7E8; margin: 0; }
+
+    /* ── Video ── */
+    .video-wrap {
+      margin-top: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      max-width: 760px;
+      box-shadow: 0 8px 32px rgba(19,39,75,0.12);
+    }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; }
   </style>
 </head>
 <body>
@@ -76,7 +175,7 @@
         <li class="active"><a href="fact-sheets.html">Fact Sheets and Resources</a></li>
         <li><a href="newsroom.html">Newsroom</a></li>
       </ul>
-          <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
   </header>
   <div class="mobile-nav" id="mobile-nav" style="display:none">
@@ -96,67 +195,220 @@
     <style>.hero-static::before { background-image: var(--hero-bg); }</style>
     <div class="hero1-main">
       <h1>Fact Sheets &amp; Resources</h1>
-      <p>Research, reports, and educational materials from Elea Institute.</p>
+      <p>Research, resources, and education about hospice and palliative care.</p>
     </div>
   </div>
 
   <!-- INTRO -->
-  <div class="page-intro">
+  <div class="resource-section">
     <span class="eyebrow">Knowledge Center</span>
     <span class="section-bar"></span>
-    <h2>Resources</h2>
-    <p>Elea Institute is committed to advancing hospice and palliative care through research and education. Explore our collection of fact sheets, reports, and resources.</p>
+    <p>There are a lot of common misconceptions about hospice and palliative care. Below are helpful resources to help you understand exactly what serious illness care is, and how it serves patients and caregivers across the country.</p>
+  </div>
 
-    <div class="resources-grid">
+  <hr class="section-divider" />
 
-      <!-- Research Report -->
-      <div class="resource-card">
-        <div class="tag">Research Report</div>
-        <h3>Caregivers in Hospice and Palliative Care</h3>
-        <p>Joint research findings from Elea Institute and NPHI exploring the experiences, challenges, and needs of hospice caregivers nationwide.</p>
-        <a href="https://eleainstitute.org/" target="_blank">Read the Full Report →</a>
+  <!-- KEY FACTS -->
+  <div class="resource-section">
+    <h2>Key Facts</h2>
+
+    <div class="facts-grid">
+
+      <div class="fact-card">
+        <p>Palliative care is available to anyone, at any stage: patients can access palliative care at any stage of their illness to receive treatments and therapies to improve their quality of life.</p>
+        <span class="source">Source: Health.com</span>
       </div>
 
-      <!-- Fact Sheet: Access -->
-      <div class="resource-card">
-        <div class="tag">Fact Sheet</div>
-        <h3>Expanding Access to Hospice and Palliative Care</h3>
-        <p>An overview of the current state of hospice and palliative care access in the United States and the barriers families face.</p>
-        <a href="https://eleainstitute.org/" target="_blank">View Fact Sheet →</a>
+      <div class="fact-card">
+        <p>There are 4 various levels of hospice care: Routine Home, Continuous Home, Inpatient Respite, General Inpatient.</p>
+        <span class="source">Source: Medicare.gov</span>
       </div>
 
-      <!-- Fact Sheet: Caregivers -->
-      <div class="resource-card">
-        <div class="tag">Fact Sheet</div>
-        <h3>Supporting Family Caregivers</h3>
-        <p>Resources and guidance for family members caring for loved ones at end of life, including available support services.</p>
-        <a href="https://eleainstitute.org/" target="_blank">View Fact Sheet →</a>
+      <div class="fact-card">
+        <p>Hospice care is provided by a range of providers: doctors, nurses, social workers, nutritionists, chaplains, pharmacists, therapists, and volunteers.</p>
+        <span class="source">Source: National Institute on Aging</span>
       </div>
 
-      <!-- Community-Based Palliative Care -->
-      <div class="resource-card">
-        <div class="tag">Article</div>
-        <h3>Expanding Access to Community-Based Palliative Care</h3>
-        <p>By Kristofer L. Smith, MD, MPP — An overview of recent efforts to scale community-based palliative care models for underserved populations.</p>
-        <a href="https://eleainstitute.org/newsroom/" target="_blank">Read the Article →</a>
+      <div class="fact-card">
+        <p>Palliative care is an unmet, global need: only 14% of patients who need palliative care receive it.</p>
+        <span class="source">Source: World Health Organization</span>
       </div>
 
-      <!-- Values -->
-      <div class="resource-card">
-        <div class="tag">Article</div>
-        <h3>Dignity, Compassion, Comfort: The Core of Elea Institute's Values</h3>
-        <p>An exploration of the guiding principles embedded in Elea Institute's mission and how they shape our work.</p>
-        <a href="https://eleainstitute.org/newsroom/" target="_blank">Read the Article →</a>
+      <div class="fact-card">
+        <p>Hospice care offers better end-of-life outcomes: studies show hospice usage during the last 6 months of life is associated with improved patient and family experience including pain control, increased family satisfaction, decreased ICU visits, and lower mortality rates.</p>
+        <span class="source">Source: National Library of Medicine</span>
       </div>
 
-      <!-- Grantmaking -->
-      <div class="resource-card">
-        <div class="tag">Report</div>
-        <h3>2024 Grants Overview</h3>
-        <p>A summary of Elea Institute's 2024 grantmaking, including funded organizations, program areas, and expected outcomes.</p>
-        <a href="grants-awarded.html">View Grants Awarded →</a>
+      <div class="fact-card">
+        <p>Hospice reduces healthcare costs — especially for Medicare patients: it is estimated Medicare spending for those who received hospice care was $3.5 billion less than it would have been had they not received hospice care.</p>
+        <span class="source">Source: Alliance for Care at Home</span>
       </div>
 
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- MYTH VS FACT -->
+  <div class="resource-section">
+    <h2>Myth vs. Fact</h2>
+
+    <div class="myth-list">
+
+      <div class="myth-row">
+        <div class="myth-cell">
+          <div class="label">Myth</div>
+          <p>Palliative care is only for people that are dying.</p>
+        </div>
+        <div class="fact-cell">
+          <div class="label">Fact</div>
+          <p>Palliative care is available to anyone with a serious illness at any stage, even if they are receiving treatment.</p>
+          <span class="source">Source: National Institute on Aging</span>
+        </div>
+      </div>
+
+      <div class="myth-row">
+        <div class="myth-cell">
+          <div class="label">Myth</div>
+          <p>You can't stop hospice care once you begin.</p>
+        </div>
+        <div class="fact-cell">
+          <div class="label">Fact</div>
+          <p>Patients can stop hospice care at any time and resume curative treatments if they choose. Hospice is not a permanent decision.</p>
+          <span class="source">Source: Medicare.gov</span>
+        </div>
+      </div>
+
+      <div class="myth-row">
+        <div class="myth-cell">
+          <div class="label">Myth</div>
+          <p>Hospice and palliative care are only for seniors.</p>
+        </div>
+        <div class="fact-cell">
+          <div class="label">Fact</div>
+          <p>You can receive hospice and palliative care at any age.</p>
+          <span class="source">Source: National Alliance for Care at Home</span>
+        </div>
+      </div>
+
+      <div class="myth-row">
+        <div class="myth-cell">
+          <div class="label">Myth</div>
+          <p>Hospice care only includes one nurse.</p>
+        </div>
+        <div class="fact-cell">
+          <div class="label">Fact</div>
+          <p>Hospice provides a care team including nurses, aides, social workers, chaplains, and volunteers to support both the patient and family.</p>
+          <span class="source">Source: Hospice Foundation of America</span>
+        </div>
+      </div>
+
+      <div class="myth-row">
+        <div class="myth-cell">
+          <div class="label">Myth</div>
+          <p>Palliative care is a replacement for life-saving treatments.</p>
+        </div>
+        <div class="fact-cell">
+          <div class="label">Fact</div>
+          <p>Palliative care works alongside treatments and therapies to help produce a better quality of life.</p>
+          <span class="source">Source: World Health Organization</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- FAQS -->
+  <div class="resource-section">
+    <h2>Not So Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">What is the difference between hospice care and palliative care?</div>
+        <div class="faq-a">
+          <p>Palliative care is for anyone with a serious illness, at any stage. It focuses on improving quality of life and can be provided alongside curative treatments. Hospice care is a specific type of palliative care for people nearing the end of life who are no longer seeking curative treatment.</p>
+          <span class="source">Source: National Institute on Aging</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">When should someone consider palliative care?</div>
+        <div class="faq-a">
+          <p>Palliative care can be introduced at any stage of a serious illness, not just at the end of life. It's especially helpful for managing symptoms, stress, and side effects from treatment.</p>
+          <span class="source">Source: Health.com</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I continue treatment while receiving palliative care?</div>
+        <div class="faq-a">
+          <p>Yes. Palliative care is designed to work alongside your treatments. Its goal is to help you feel better physically and emotionally while you continue care for your illness.</p>
+          <span class="source">Source: World Health Organization</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is hospice care only for elderly people?</div>
+        <div class="faq-a">
+          <p>No. Hospice care is available to individuals of all ages who meet the medical criteria, including children and young adults with serious or terminal illnesses.</p>
+          <span class="source">Source: National Alliance for Care at Home</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can you leave hospice care if you change your mind?</div>
+        <div class="faq-a">
+          <p>Yes. Choosing hospice is not a permanent decision. You can leave hospice at any time and return to curative treatment if your condition changes.</p>
+          <span class="source">Source: Medicare.gov</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Who provides hospice care?</div>
+        <div class="faq-a">
+          <p>Hospice care is delivered by a full care team that may include doctors, nurses, social workers, chaplains, pharmacists, dietitians, therapists, and volunteers.</p>
+          <span class="source">Source: National Institute on Aging</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How many types of hospice care are there?</div>
+        <div class="faq-a">
+          <p>There are four levels of hospice care: Routine Home Care, Continuous Home Care, General Inpatient Care, and Inpatient Respite Care. Each level is designed to meet different patient needs.</p>
+          <span class="source">Source: Medicare.gov</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why is access to hospice and palliative care so important?</div>
+        <div class="faq-a">
+          <p>Globally, only 14% of people who need palliative care receive it. Increasing access can improve quality of life and support for millions facing serious illness.</p>
+          <span class="source">Source: World Health Organization</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is hospice care effective?</div>
+        <div class="faq-a">
+          <p>Yes. Hospice care is proven to improve patient outcomes and satisfaction. For example, successful discharge rates from hospice increased from 16.0% in 2020 to 19.0% in 2024.</p>
+          <span class="source">Source: CMS Hospice Monitoring Report</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- VIDEO -->
+  <div class="resource-section">
+    <h2>Video Resource</h2>
+    <p>America's Caregiving Crisis — Full Documentary from PBS Frontline.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/Ov-1u6KJB1Q" title="America's Caregiving Crisis | Full Documentary | PBS" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -223,5 +475,16 @@
   </footer>
 
   <script src="site.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 </body>
 </html>
