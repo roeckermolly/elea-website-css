@@ -4,7 +4,7 @@
     {
       "name": "Elea CSS Preview",
       "runtimeExecutable": "ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "/Users/molly", "-p", "3000"],
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/molly/elea-site", "-p", "3000"],
       "port": 3000
     }
   ]
