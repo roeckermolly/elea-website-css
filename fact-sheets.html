@@ -442,13 +442,13 @@
   <div class="newsletter-section">
     <div class="newsletter-inner">
       <h2>Stay Connected</h2>
-      <form class="newsletter-form">
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <select>
+      <form class="newsletter-form" action="mailto:elea@teamlsg.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Name" />
+        <input type="email" name="Email" placeholder="Email" />
+        <select name="Topic">
           <option>What can we help you with?</option>
         </select>
-        <a href="#" class="button1" style="background:var(--c_a3);text-align:center;">Sign up for our latest news</a>
+        <button type="submit" class="button1" style="background:var(--c_a3);text-align:center;border:none;cursor:pointer;width:100%;">Sign up for our latest news</button>
       </form>
     </div>
   </div>
