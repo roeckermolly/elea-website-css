@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Request for Proposals 2026 — Elea Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="elea-think-tank-refresh.css" />
+  <style>
+    /* Timetable */
+    .timetable {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-family: var(--ff_2);
+      font-size: 0.88rem;
+    }
+    .timetable th {
+      background: var(--c_a3);
+      color: #fff;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+    .timetable td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #CDD7E8;
+      color: #333;
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .timetable tr:last-child td { border-bottom: none; }
+    .timetable tr:nth-child(even) td { background: var(--c_b3); }
+    .timetable td:first-child {
+      font-weight: 700;
+      color: var(--c_c1);
+      white-space: nowrap;
+      width: 180px;
+    }
+
+    /* Focus area cards */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .focus-card {
+      background: var(--c_b3);
+      border-left: 4px solid var(--c_c1);
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+    }
+    .focus-card-num {
+      font-family: var(--ff_2);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c_c1);
+      margin-bottom: 0.4rem;
+    }
+    .focus-card h4 {
+      font-family: var(--ff_1);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+    .focus-card p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* Criteria / eligibility lists */
+    .rfp-list {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+    }
+    .rfp-list li {
+      font-family: var(--ff_2);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #333;
+      padding: 0.65rem 0 0.65rem 1.5rem;
+      border-bottom: 1px solid #e8eef7;
+      position: relative;
+    }
+    .rfp-list li:last-child { border-bottom: none; }
+    .rfp-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c_c1);
+    }
+
+    /* Apply box */
+    .apply-box {
+      background: var(--c_a3);
+      color: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .apply-box h3 {
+      font-family: var(--ff_1);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .apply-box p {
+      font-family: var(--ff_2);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      opacity: 0.88;
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+    }
+    .access-code-display {
+      display: inline-block;
+      background: var(--c_c1);
+      color: #fff;
+      font-family: var(--ff_2);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 10px 24px;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Section dividers within page */
+    .rfp-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #CDD7E8;
+    }
+    .rfp-section h3 {
+      font-family: var(--ff_1);
+      font-size: 1.4rem;
+      color: var(--c_a3);
+      margin-bottom: 1rem;
+    }
+    .rfp-section p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1rem;
+      max-width: 780px;
+    }
+
+    /* Award callout */
+    .award-callout {
+      background: #fff;
+      border: 2px solid var(--c_c1);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .award-callout-amount {
+      font-family: var(--ff_1);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--c_c1);
+      white-space: nowrap;
+    }
+    .award-callout-text {
+      font-family: var(--ff_2);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Contact grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .contact-card {
+      background: var(--c_b3);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+    }
+    .contact-card .label {
+      font-family: var(--ff_2);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c_c1);
+      margin-bottom: 0.4rem;
+    }
+    .contact-card .name {
+      font-family: var(--ff_1);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      margin-bottom: 0.25rem;
+    }
+    .contact-card a {
+      font-family: var(--ff_2);
+      font-size: 0.85rem;
+      color: var(--c_a1);
+    }
+    .contact-card a:hover { color: var(--c_c1); }
+
+    @media (max-width: 700px) {
+      .focus-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .award-callout { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .timetable td:first-child { white-space: normal; width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="top1">
+      <div class="logo1"><a href="index.html"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></a></div>
+      <ul class="nav1-main">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li class="has-dropdown active"><a href="grant-applications.html">Grant Applications</a>
+          <ul class="nav-dropdown">
+            <li><a href="grant-applications.html">Apply for a Grant</a></li>
+            <li><a href="rfp-2026.html">National RFP 2026</a></li>
+          </ul>
+        </li>
+        <li><a href="grants-awarded.html">Grants Awarded</a></li>
+        <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+        <li><a href="newsroom.html">Newsroom</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <div class="mobile-nav" id="mobile-nav" style="display:none">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="grant-applications.html">Grant Applications</a></li>
+      <li><a href="rfp-2026.html" style="padding-left:2.5rem;font-size:0.78rem;opacity:0.85;">↳ National RFP 2026</a></li>
+      <li><a href="grants-awarded.html">Grants Awarded</a></li>
+      <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+      <li><a href="newsroom.html">Newsroom</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-static" style="--hero-bg: url('https://eleainstitute.org/wp-content/uploads/sites/344/GPIC-hands_elea-1.png');">
+    <style>.hero-static::before { background-image: var(--hero-bg); }</style>
+    <div class="hero1-main">
+      <h1>National RFP 2026</h1>
+      <p>Elea Institute's National Request for Proposals for the 2026 grantmaking cycle.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-intro">
+    <span class="eyebrow">Grant Applications</span>
+    <span class="section-bar"></span>
+    <h2>National Request for Proposals 2026</h2>
+    <p>Elea Institute invites qualified organizations to apply for funding through our 2026 National grantmaking cycle. We are committed to partnering with organizations that expand access to hospice and palliative care, advance research and education, and address unmet needs in serious illness care across the United States.</p>
+
+    <!-- Award callout -->
+    <div class="award-callout">
+      <div class="award-callout-amount">Up to $3M</div>
+      <div class="award-callout-text">Total awards distributed to between <strong>five and ten organizations</strong> during the 2026 grantmaking cycle.</div>
+    </div>
+
+    <!-- TIMETABLE -->
+    <div class="rfp-section">
+      <h3>Timetable</h3>
+      <p>Key dates for the 2026 National RFP cycle:</p>
+      <table class="timetable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Milestone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>March 6, 2026</td>
+            <td>RFP Released</td>
+          </tr>
+          <tr>
+            <td>April 9, 2026</td>
+            <td>Letters of Interest Due</td>
+          </tr>
+          <tr>
+            <td>May 8, 2026</td>
+            <td>Invitations to Submit Full Proposal</td>
+          </tr>
+          <tr>
+            <td>June 12, 2026</td>
+            <td>Full Application Deadline</td>
+          </tr>
+          <tr>
+            <td>July 29, 2026</td>
+            <td>Board Meeting</td>
+          </tr>
+          <tr>
+            <td>Mid-August 2026</td>
+            <td>Notifications and Fund Delivery</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FOCUS AREAS -->
+    <div class="rfp-section">
+      <h3>Focus Areas</h3>
+      <p>Elea Institute's 2026 grantmaking is organized around four aspirational pillars. Organizations whose work aligns with one or more of these areas are encouraged to apply.</p>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-card-num">Pillar 1</div>
+          <h4>Improving Access to Quality Care</h4>
+          <p>Enhancing access to serious illness care for underserved populations, including expanding geographic reach, reducing disparities, and removing systemic barriers.</p>
+        </div>
+        <div class="focus-card">
+          <div class="focus-card-num">Pillar 2</div>
+          <h4>Advancing Research, Education, and Training</h4>
+          <p>Building professional capabilities among caregivers, clinicians, and healthcare teams through evidence-based research, clinical training, and educational resources.</p>
+        </div>
+        <div class="focus-card">
+          <div class="focus-card-num">Pillar 3</div>
+          <h4>Increasing End-of-Life Care Awareness</h4>
+          <p>Advancing public understanding of hospice and palliative care options through national research, awareness campaigns, and advocacy initiatives.</p>
+        </div>
+        <div class="focus-card">
+          <div class="focus-card-num">Pillar 4</div>
+          <h4>Unmet Needs &amp; Emerging Solutions</h4>
+          <p>Supporting innovative and transformative ideas that address unmet needs in serious illness care, including new models of care delivery and technology-enabled solutions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELECTION CRITERIA -->
+    <div class="rfp-section">
+      <h3>Selection Criteria</h3>
+      <p>Elea Institute evaluates all proposals against the following criteria:</p>
+      <ul class="rfp-list">
+        <li>Demonstrated financial stability and responsible stewardship of grant funds</li>
+        <li>Direct, measurable impact on patients, caregivers, or the quality of care provided</li>
+        <li>Preference for new initiatives or meaningful expansions of existing programs</li>
+        <li>A clear financial sustainability plan that demonstrates long-term viability beyond the grant period</li>
+      </ul>
+    </div>
+
+    <!-- ELIGIBILITY -->
+    <div class="rfp-section">
+      <h3>Eligibility Requirements</h3>
+      <p>To be considered for funding, organizations must meet all of the following criteria:</p>
+      <ul class="rfp-list">
+        <li>Tax-exempt under Section 501(c)(3) of the Internal Revenue Code</li>
+        <li>Directly engaged in palliative care, hospice care, or related serious illness fields</li>
+        <li>Operating programs within the United States</li>
+        <li>Committed to increasing the number of patients served and improving the quality of care delivered</li>
+      </ul>
+    </div>
+
+    <!-- EXCLUSIONS -->
+    <div class="rfp-section">
+      <h3>Exclusions</h3>
+      <p>The following organizations or uses of funds are not eligible for consideration:</p>
+      <ul class="rfp-list">
+        <li>For-profit organizations (except those with a clearly defined charitable purpose and appropriate board oversight)</li>
+        <li>Organizations with operating budgets where more than 25% of costs are unrelated to the proposed program or core mission</li>
+        <li>Grant funds may not be used to support direct lobbying activities</li>
+      </ul>
+    </div>
+
+    <!-- HOW TO APPLY -->
+    <div class="rfp-section">
+      <h3>How to Apply</h3>
+      <p>Applications are submitted through Elea Institute's online application system. To access the 2026 National RFP, register or log in to the system using the access code below.</p>
+      <div class="apply-box">
+        <h3>Access the 2026 Application</h3>
+        <p>Use the access code below when registering in Elea's online application system. Proposals must be completed and submitted with all required responses and attachments to be considered for funding.</p>
+        <div class="access-code-display">Elea25</div>
+        <br />
+        <a href="https://eleainstitute.org/grant-applications/" target="_blank" class="button1" style="background:var(--c_c1);">Access the Application System</a>
+      </div>
+    </div>
+
+    <!-- QUESTIONS / CONTACTS -->
+    <div class="rfp-section">
+      <h3>Questions?</h3>
+      <p>Our team is here to help. Reach out to the appropriate contact below with any questions about the RFP or the application system.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="label">RFP Questions</div>
+          <div class="name">Rachel Rifkin</div>
+          <a href="mailto:rrifkin@gmafoundations.com">rrifkin@gmafoundations.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">Technical / System Questions</div>
+          <div class="name">Skylar Brown</div>
+          <a href="mailto:sbrown@gmafoundations.com">sbrown@gmafoundations.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <a href="grant-applications.html" class="button1" style="background:var(--c_a3);">← Back to Grant Applications</a>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="testimonial-section">
+    <q>By offering grants and supporting wide-ranging initiatives, we strive to remove barriers to care, ensuring that compassionate and effective end-of-life care is accessible to all who need it.</q>
+    <cite>Kent Mathy — Chairman of the Board</cite>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2>Stay Connected</h2>
+      <form class="newsletter-form" action="mailto:elea@teamlsg.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Name" />
+        <input type="email" name="Email" placeholder="Email" />
+        <select name="Topic">
+          <option>What can we help you with?</option>
+        </select>
+        <button type="submit" class="button1" style="background:var(--c_a3);text-align:center;border:none;cursor:pointer;width:100%;">Sign up for our latest news</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer1">
+    <div class="footer1-inner">
+      <div>
+        <div class="logo1-footer"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></div>
+        <div class="tagline">Dignity. Compassion. Comfort.</div>
+      </div>
+      <nav class="footer1-nav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="impact.html">Impact</a>
+        <a href="grant-applications.html">Grant Applications</a>
+        <a href="grants-awarded.html">Grants Awarded</a>
+        <a href="fact-sheets.html">Facts &amp; Resources</a>
+        <a href="newsroom.html">Newsroom</a>
+    </nav>
+    </div>
+    <hr class="footer1-hr" />
+    <p class="footer1-copys">© 2026 Elea Institute. All rights reserved.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

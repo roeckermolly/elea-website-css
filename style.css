@@ -91,6 +91,51 @@ h3 {
   text-transform: uppercase;
 }
 
+/* === NAV DROPDOWN === */
+.nav1-main > li.has-dropdown {
+  position: relative;
+}
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--c_a3);
+  min-width: 210px;
+  box-shadow: 0 8px 24px rgba(19, 39, 75, 0.32);
+  border-top: 2px solid var(--c_c1);
+  z-index: 200;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav1-main > li.has-dropdown:hover .nav-dropdown {
+  display: block;
+}
+.nav-dropdown li a {
+  display: block;
+  color: #fff;
+  padding: 0.8rem 1.1rem;
+  font-family: var(--ff_2);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-dropdown li:last-child a { border-bottom: none; }
+.nav-dropdown li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--c_c1);
+}
+.nav1-main > li.has-dropdown > a::after {
+  content: ' ▾';
+  font-size: 0.55rem;
+  vertical-align: middle;
+}
+
 /* === SECTION GENERIC === */
 section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
 .section-full { max-width: 100%; padding: 4rem 2rem; }
