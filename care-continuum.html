@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Care Continuum — Elea Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="elea-think-tank-refresh.css" />
+  <style>
+    /* Intro callout */
+    .callout-banner {
+      background: var(--c_a3);
+      color: #fff;
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem;
+      margin: 2rem 0 3rem;
+    }
+    .callout-banner h3 {
+      font-family: var(--ff_1);
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .callout-banner p {
+      font-family: var(--ff_2);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      opacity: 0.9;
+      max-width: 700px;
+    }
+
+    /* Two-column layout sections */
+    .continuum-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 3rem 0;
+      border-top: 1px solid #CDD7E8;
+    }
+    .continuum-section:first-of-type { border-top: none; }
+    .continuum-section.reverse { direction: rtl; }
+    .continuum-section.reverse > * { direction: ltr; }
+    .continuum-text h2 {
+      font-family: var(--ff_1);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--c_a3);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .continuum-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .continuum-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(19, 39, 75, 0.14);
+    }
+    .continuum-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .continuum-image-placeholder {
+      background: var(--c_b3);
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Outcome bullets */
+    .outcome-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .outcome-list li {
+      font-family: var(--ff_2);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #333;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      border-bottom: 1px solid #e8eef7;
+      position: relative;
+    }
+    .outcome-list li:last-child { border-bottom: none; }
+    .outcome-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c_c1);
+    }
+
+    /* Benefits grid */
+    .benefits-section {
+      background: var(--c_b3);
+      padding: 4rem 2rem;
+    }
+    .benefits-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .benefits-inner h2 {
+      font-family: var(--ff_1);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--c_a3);
+      margin-bottom: 0.5rem;
+    }
+    .benefits-inner > p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .benefit-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 1.5rem;
+      border-top: 3px solid var(--c_c1);
+      box-shadow: 0 2px 12px rgba(19, 39, 75, 0.07);
+    }
+    .benefit-card h4 {
+      font-family: var(--ff_1);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      margin-bottom: 0.5rem;
+    }
+    .benefit-card p {
+      font-family: var(--ff_2);
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    /* Mission block */
+    .mission-block {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .mission-block h2 {
+      font-family: var(--ff_1);
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      color: var(--c_a3);
+      margin-bottom: 1.25rem;
+    }
+    .mission-block p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #333;
+      max-width: 720px;
+      margin: 0 auto 1rem;
+    }
+    .mission-block .highlight {
+      font-family: var(--ff_1);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--c_a3);
+      border-left: 4px solid var(--c_c1);
+      padding: 1rem 1.5rem;
+      margin: 2rem auto;
+      max-width: 680px;
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 820px) {
+      .continuum-section { grid-template-columns: 1fr; gap: 1.5rem; }
+      .continuum-section.reverse { direction: ltr; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="top1">
+      <div class="logo1"><a href="index.html"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></a></div>
+      <ul class="nav1-main">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li class="has-dropdown"><a href="grant-applications.html">Grant Applications</a>
+          <ul class="nav-dropdown">
+            <li><a href="grant-applications.html">Apply for a Grant</a></li>
+            <li><a href="rfp-2026.html">National RFP 2026</a></li>
+          </ul>
+        </li>
+        <li><a href="grants-awarded.html">Grants Awarded</a></li>
+        <li class="has-dropdown active"><a href="fact-sheets.html">Facts &amp; Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+            <li><a href="care-continuum.html">The Care Continuum</a></li>
+          </ul>
+        </li>
+        <li><a href="newsroom.html">Newsroom</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <div class="mobile-nav" id="mobile-nav" style="display:none">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="grant-applications.html">Grant Applications</a></li>
+      <li><a href="rfp-2026.html" style="padding-left:2.5rem;font-size:0.78rem;opacity:0.85;">&#8618; National RFP 2026</a></li>
+      <li><a href="grants-awarded.html">Grants Awarded</a></li>
+      <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+      <li><a href="care-continuum.html" style="padding-left:2.5rem;font-size:0.78rem;opacity:0.85;">&#8618; The Care Continuum</a></li>
+      <li><a href="newsroom.html">Newsroom</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-static" style="--hero-bg: url('https://eleainstitute.org/wp-content/uploads/sites/344/AdobeStock_1341979123-1-2000x1334.jpg');">
+    <style>.hero-static::before { background-image: var(--hero-bg); }</style>
+    <div class="hero1-main">
+      <h1>The Care Continuum</h1>
+      <p>Understanding how earlier, more connected care changes outcomes for patients and families.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="page-intro">
+    <span class="eyebrow">Facts &amp; Resources</span>
+    <span class="section-bar"></span>
+    <h2>The Care Continuum</h2>
+
+    <div class="callout-banner">
+      <h3>Most people receive hospice care far too late</h3>
+      <p>Many people only enter hospice in the final days or weeks of life. When this happens, patients and families miss out on the full support hospice can provide. Instead, they often experience repeated hospital visits, stressful medical care, and difficult decisions during an already overwhelming time.</p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="continuum-section">
+      <div class="continuum-text">
+        <h2>Care should work together, not in silos</h2>
+        <p>Primary care, home health, palliative care, and hospice should feel like one connected experience — not a series of disconnected handoffs. When care is coordinated across the continuum, patients and families gain access to the support they need at every stage of serious illness.</p>
+        <p>Connected care leads to better outcomes across the board:</p>
+        <ul class="outcome-list">
+          <li>Trusted relationships built over time with care teams</li>
+          <li>Families better prepared for what lies ahead</li>
+          <li>Reduced hospitalizations and emergency visits</li>
+          <li>More time receiving care at home</li>
+          <li>Earlier access to the full benefits of hospice</li>
+        </ul>
+        <p style="margin-top:1.25rem;font-style:italic;color:var(--c_a3);font-family:var(--ff_1);">People deserve support long before the final stage of life.</p>
+      </div>
+      <div class="continuum-image-placeholder">
+        <img src="https://eleainstitute.org/wp-content/uploads/sites/344/GPIC-hands_elea-1.png" alt="Care coordination" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="continuum-section reverse">
+      <div class="continuum-text">
+        <h2>Earlier support changes everything</h2>
+        <p>When patients and families are connected to supportive care earlier in the course of serious illness, the difference is profound. They have more time to build relationships with their care team, make informed decisions, and focus on what matters most to them.</p>
+        <p>Early supportive care provides:</p>
+        <ul class="outcome-list">
+          <li>Improved quality of life throughout the illness journey</li>
+          <li>Better symptom management and comfort</li>
+          <li>Guidance and emotional support for family caregivers</li>
+          <li>Care decisions aligned with personal values and goals</li>
+          <li>Smoother, less stressful transitions as needs evolve</li>
+        </ul>
+      </div>
+      <div class="continuum-image-placeholder">
+        <img src="https://eleainstitute.org/wp-content/uploads/sites/344/Untitled-design-2024-08-12T181432.534-e1755718902761-2000x731.png" alt="Earlier support" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits-section">
+    <div class="benefits-inner">
+      <span class="eyebrow">Why it matters</span>
+      <span class="section-bar"></span>
+      <h2>The benefits of connected care</h2>
+      <p>When the care continuum works as it should, patients and families experience measurable improvements across every dimension of care.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h4>Continuity of Care</h4>
+          <p>Patients work with familiar care teams across every stage, building trust and ensuring nothing falls through the cracks.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Patient-Centered Approach</h4>
+          <p>Care decisions are guided by the patient's own values, goals, and preferences — not just clinical defaults.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Improved Quality of Life</h4>
+          <p>Earlier access to palliative support reduces suffering and improves well-being throughout the illness journey.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Accessible and Affordable Care</h4>
+          <p>Connected care reduces unnecessary hospitalizations and costly interventions, making high-quality care more sustainable.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Efficient Use of Resources</h4>
+          <p>When care is coordinated, the right services reach the right patients at the right time — reducing waste and gaps.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Increased Hospice Utilization</h4>
+          <p>Earlier engagement with the care continuum means more patients access the full benefits of hospice when they need it most.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div class="mission-block">
+    <span class="eyebrow">Our Role</span>
+    <span class="section-bar" style="margin:0 auto 1rem;"></span>
+    <h2>This is why Elea Institute exists</h2>
+    <p>Elea Institute funds research, innovation, and community programs that help make earlier, more connected care possible.</p>
+    <p>Our mission is to expand access to high-quality hospice and palliative care. We believe that improving end-of-life care starts long before hospice begins.</p>
+    <div class="highlight">
+      "We believe the future of care starts earlier, happens closer to home, and keeps patients and families at the center of every decision."
+    </div>
+    <a href="impact.html" class="button1" style="background:var(--c_c1);">See Our Impact</a>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="testimonial-section">
+    <q>By offering grants and supporting wide-ranging initiatives, we strive to remove barriers to care, ensuring that compassionate and effective end-of-life care is accessible to all who need it.</q>
+    <cite>Kent Mathy — Chairman of the Board</cite>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2>Stay Connected</h2>
+      <form class="newsletter-form" action="mailto:elea@teamlsg.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Name" />
+        <input type="email" name="Email" placeholder="Email" />
+        <select name="Topic">
+          <option>What can we help you with?</option>
+        </select>
+        <button type="submit" class="button1" style="background:var(--c_a3);text-align:center;border:none;cursor:pointer;width:100%;">Sign up for our latest news</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer1">
+    <div class="footer1-inner">
+      <div>
+        <div class="logo1-footer"><img src="https://eleainstitute.org/wp-content/uploads/sites/344/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></div>
+      </div>
+      <nav class="footer1-nav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="impact.html">Impact</a>
+        <a href="grant-applications.html">Grant Applications</a>
+        <a href="grants-awarded.html">Grants Awarded</a>
+        <a href="fact-sheets.html">Facts &amp; Resources</a>
+        <a href="newsroom.html">Newsroom</a>
+      </nav>
+    </div>
+    <hr class="footer1-hr" />
+    <p class="footer1-copys">© 2026 Elea Institute. All rights reserved.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
