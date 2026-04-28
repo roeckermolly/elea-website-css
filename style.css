@@ -180,13 +180,13 @@ section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
   z-index: 1;
 }
 .slide-mission::before {
-  background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/AdobeStock_1341979123-1-2000x1334.jpg');
+  background-image: url('images/AdobeStock_1341979123-1-2000x1334.jpg');
 }
 .slide-team::before {
-  background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/Untitled-design-2024-08-12T181432.534-e1755718902761-2000x731.png');
+  background-image: url('images/Untitled-design-2024-08-12T181432.534-e1755718902761-2000x731.png');
 }
 .slide-impact::before {
-  background-image: url('https://eleainstitute.org/wp-content/uploads/sites/344/GPIC-hands_elea-1.png');
+  background-image: url('images/GPIC-hands_elea-1.png');
 }
 
 /* Slide text content */
