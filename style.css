@@ -466,10 +466,20 @@ figure.has-hover:hover figcaption { opacity: 1; }
   padding: 12px 16px;
   width: 100%;
 }
-.newsletter-form input:focus, .newsletter-form select:focus {
+.newsletter-form input:focus, .newsletter-form select:focus, .newsletter-form textarea:focus {
   border-color: var(--c_a1);
   box-shadow: 0 0 0 3px rgba(34, 55, 104, 0.12);
   outline: none;
+}
+.newsletter-form textarea {
+  border: 1px solid #B1C1E7;
+  border-radius: 4px;
+  font-family: var(--ff_2);
+  font-size: 0.875rem;
+  padding: 12px 16px;
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
 }
 
 /* === TEAM GRID === */
