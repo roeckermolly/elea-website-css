@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hospice Landscape — Elea Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="elea-think-tank-refresh.css" />
+  <style>
+    /* Report meta line */
+    .report-meta {
+      font-family: var(--ff_2);
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Stat tiles */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .stat-tile {
+      background: var(--c_b3);
+      border-radius: 6px;
+      padding: 1.75rem 1.5rem;
+      border-top: 3px solid var(--c_c1);
+    }
+    .stat-tile .stat-number {
+      font-family: var(--ff_1);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-tile .stat-label {
+      font-family: var(--ff_2);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c_c1);
+      margin-bottom: 0.75rem;
+    }
+    .stat-tile p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Before/after count comparison */
+    .count-compare {
+      display: flex;
+      gap: 2.5rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .count-compare .count-block {
+      border-left: 3px solid var(--c_c1);
+      padding-left: 1.25rem;
+    }
+    .count-compare .count-number {
+      font-family: var(--ff_1);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--c_a3);
+      line-height: 1;
+    }
+    .count-compare .count-label {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    /* Report sections */
+    .report-section { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+    .report-section h2 {
+      font-family: var(--ff_1);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      color: var(--c_a3);
+      margin-bottom: 1rem;
+    }
+    .report-section p {
+      font-size: 0.975rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.1rem;
+    }
+    .report-section p:last-child { margin-bottom: 0; }
+
+    /* Methodology note */
+    .methodology-note {
+      background: #f7f9fc;
+      border: 1px solid #CDD7E8;
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+    .methodology-note p {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: #444;
+      margin-bottom: 0.75rem;
+    }
+    .methodology-note p:last-child { margin-bottom: 0; }
+
+    /* Download CTA */
+    .report-downloads {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 820px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .count-compare { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="top1">
+      <div class="logo1"><a href="index.html"><img src="images/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></a></div>
+      <ul class="nav1-main">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li class="has-dropdown"><a href="grant-applications.html">Grant Applications</a>
+          <ul class="nav-dropdown">
+            <li><a href="grant-applications.html">Apply for a Grant</a></li>
+            <li><a href="rfp-2026.html">National RFP 2026</a></li>
+            <li><a href="rfp-midwest-2026.html">Midwest RFP 2026</a></li>
+          </ul>
+        </li>
+        <li><a href="grants-awarded.html">Grants Awarded</a></li>
+        <li class="has-dropdown"><a href="fact-sheets.html">Facts &amp; Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+            <li><a href="care-continuum.html">The Care Continuum</a></li>
+          </ul>
+        </li>
+        <li><a href="newsroom.html">Newsroom</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <div class="mobile-nav" id="mobile-nav" style="display:none">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="grant-applications.html">Grant Applications</a></li>
+      <li><a href="grants-awarded.html">Grants Awarded</a></li>
+      <li><a href="fact-sheets.html">Facts &amp; Resources</a></li>
+      <li><a href="newsroom.html">Newsroom</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-static" style="--hero-bg: url('images/AdobeStock_1341979123-1-2000x1334.jpg');">
+    <style>.hero-static::before { background-image: var(--hero-bg); }</style>
+    <div class="hero1-main">
+      <h1>The Hospice Landscape</h1>
+      <p>A national review of hospice ownership models, from 2018 to 2025.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="page-intro" style="border-bottom:1px solid #CDD7E8;">
+    <span class="eyebrow">Research</span>
+    <span class="section-bar"></span>
+    <h2>A National Review of Hospice Ownership Models Over Time</h2>
+    <p class="report-meta">Funded by Elea Institute &middot; Conducted by Healthsperien &middot; May 2026</p>
+    <p>The composition of the U.S. hospice system has shifted substantially since 2018, driven by rapid expansion of for-profit ownership and growing private equity investment. This report maps that transformation — illustrating how ownership models have changed from 2018 to 2025, including the increasing involvement of private equity (PE) — and fills a critical gap in current, publicly available data on the hospice market.</p>
+  </div>
+
+  <!-- KEY FINDINGS AT A GLANCE -->
+  <div class="report-section">
+    <h2>Key Findings at a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-tile">
+        <div class="stat-number">+46%</div>
+        <div class="stat-label">Growth in 8 Years</div>
+        <p>The U.S. hospice market grew from 4,744 to 6,921 Medicare-certified hospices between 2018 and 2025 — a 45.9% increase, with growth accelerating sharply in recent years.</p>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-number">&gt;50%</div>
+        <div class="stat-label">Growth in For-Profit Hospices</div>
+        <p>For-profit hospices drove most of that expansion, growing 51.1% to reach 4,747 hospices by 2025, while nonprofit/government-operated hospices declined by 22.2% over the same period.</p>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-number">&gt;38%</div>
+        <div class="stat-label">Of For-Profit Hospices Tied to Private Equity</div>
+        <p>Among for-profit hospices with a documented change of ownership, more than 1 in 3 were associated with private equity funding — likely a conservative estimate given current disclosure gaps.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" style="border:none;border-top:1px solid #CDD7E8;max-width:900px;margin:0 auto;" />
+
+  <!-- NATIONAL LANDSCAPE -->
+  <div class="report-section">
+    <h2>The National Landscape</h2>
+    <div class="count-compare">
+      <div class="count-block">
+        <div class="count-number">4,744</div>
+        <div class="count-label">Hospices in 2018</div>
+      </div>
+      <div class="count-block">
+        <div class="count-number">6,921</div>
+        <div class="count-label">Hospices in 2025</div>
+      </div>
+    </div>
+    <p>Growth has not been distributed evenly across the country. Nevada, California, and Arizona led growth with increases of 251%, 128%, and 83%, respectively, while 12 states saw their hospice markets contract over the same period — led by Mississippi, Alabama, and New York.</p>
+  </div>
+
+  <!-- FOR-PROFIT SHIFT -->
+  <div class="report-section" style="background:var(--c_b3);max-width:100%;">
+    <div style="max-width:900px;margin:0 auto;">
+      <h2>The Shift to For-Profit Ownership</h2>
+      <p>The hospice landscape is now primarily for-profit, and the gap is widening. For-profit hospices grew by more than 50% between 2018 and 2025, while the nonprofit and government-operated segment continued to shrink. This continued contraction may have implications for the diversity of providers patients can choose from when seeking care.</p>
+    </div>
+  </div>
+
+  <!-- PRIVATE EQUITY -->
+  <div class="report-section">
+    <h2>The Role of Private Equity in Hospice</h2>
+    <p>Tracking private equity activity across the hospice landscape is not straightforward — PE ownership is not systematically disclosed in Medicare enrollment records, and many transactions occur through stock sales or holding-company restructuring that generate no public administrative record.</p>
+    <p>Among for-profit hospices with a documented change-of-ownership (CHOW) transaction, more than 1 in 3 (38.7%) were associated with private equity funding. Because this analysis could only examine hospices with a documented ownership change, and because PE involvement isn't formally disclosed, this figure likely understates PE's true role in the hospice market.</p>
+  </div>
+
+  <!-- WHAT THIS MEANS -->
+  <div class="report-section" style="background:var(--c_a3);color:#fff;max-width:100%;">
+    <div style="max-width:900px;margin:0 auto;">
+      <h2 style="color:#fff;">What This Means</h2>
+      <p style="color:rgba(255,255,255,0.9);">Taken together, these findings point to increasing consolidation around larger, for-profit, and in many cases PE-backed hospices, as the nonprofit and government segment continues to contract. Linking these ownership shifts to patient-level data on care utilization, quality, outcomes, and costs is the critical next step to understanding how the rapidly changing hospice landscape is affecting the patients and families at the center of it.</p>
+      <p style="color:rgba(255,255,255,0.9);">Strengthening ownership transparency in hospice reporting is a foundational step toward more targeted program integrity efforts, better-informed payment and policy decisions, and greater accountability to the beneficiaries the hospice benefit is intended to serve.</p>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="report-section">
+    <h2>About This Analysis</h2>
+    <div class="methodology-note">
+      <p>This analysis examined the Medicare-certified hospice landscape at two points in time — 2018 and 2025 — using CMS Care Compare data, which reports each hospice's name, location, and self-reported ownership type. Hospices were tracked by unique CMS Certification Number (CCN) to identify which were operating in 2018 only, 2025 only, or both years.</p>
+      <p>To examine ownership changes, this analysis combined Care Compare data with CMS Change of Ownership (CHOW) transaction records, then cross-referenced hospices with a documented CHOW against PitchBook, a Morningstar company, to identify private equity involvement. Because CHOW filings capture only a subset of ownership activity, this approach is likely a conservative estimate of PE's full role in the hospice market.</p>
+      <p>For the complete methodology, data sources, state-level detail, and policy recommendations, see the full report below.</p>
+    </div>
+  </div>
+
+  <!-- DOWNLOADS -->
+  <div class="report-section" style="text-align:center;">
+    <h2>Read the Research</h2>
+    <p>Elea Institute funded this research to help close a critical gap in publicly available data on the hospice market.</p>
+    <div class="report-downloads" style="justify-content:center;">
+      <a href="elea-hospice-landscape-report.pdf" target="_blank" class="button1" style="background:var(--c_c1);">Read the Full Report</a>
+      <a href="elea-hospice-landscape-executive-summary.pdf" target="_blank" class="button1 -ghost" style="border-color:var(--c_a3);color:var(--c_a3);">Read the Executive Summary</a>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="testimonial-section">
+    <q>By offering grants and supporting wide-ranging initiatives, we strive to remove barriers to care, ensuring that compassionate and effective end-of-life care is accessible to all who need it.</q>
+    <cite>Kent Mathy — Chairman of the Board</cite>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2>Stay Connected</h2>
+      <form class="newsletter-form" action="https://formspree.io/f/myklrpkl" method="POST">
+        <input type="text" name="Name" placeholder="Name" />
+        <input type="email" name="Email" placeholder="Email" />
+        <select name="Topic">
+          <option value="">What can we help you with?</option>
+          <option>Grant Applications</option>
+          <option>Partner With Us</option>
+          <option>Facts &amp; Resources</option>
+          <option>News</option>
+          <option>Other</option>
+        </select>
+        <textarea name="Message" placeholder="Message"></textarea>
+        <button type="submit" class="button1" style="background:var(--c_a3);text-align:center;border:none;cursor:pointer;width:100%;">Sign up for our latest news</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer1">
+    <div class="footer1-inner">
+      <div>
+        <div class="logo1-footer"><img src="images/Elea-Institute_Horiz_White-1.png" alt="Elea Institute" /></div>
+      </div>
+      <nav class="footer1-nav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="impact.html">Impact</a>
+        <a href="grant-applications.html">Grant Applications</a>
+        <a href="grants-awarded.html">Grants Awarded</a>
+        <a href="fact-sheets.html">Facts &amp; Resources</a>
+        <a href="newsroom.html">Newsroom</a>
+      </nav>
+    </div>
+    <hr class="footer1-hr" />
+    <p class="footer1-copys">© 2026 Elea Institute. All rights reserved.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
