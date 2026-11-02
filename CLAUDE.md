@@ -31,6 +31,7 @@ Ask Molly for the current PAT if you don't have it.
 | `grants-awarded.html` | Past grantees |
 | `fact-sheets.html` | Facts & Resources |
 | `care-continuum.html` | The Care Continuum |
+| `hospice-landscape.html` | Research: The Hospice Landscape (hospice ownership/PE report) |
 | `newsroom.html` | News index |
 | `news-*.html` | Individual news articles |
 | `style.css` | Main stylesheet |
